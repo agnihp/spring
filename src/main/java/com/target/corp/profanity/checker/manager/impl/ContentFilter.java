@@ -5,21 +5,24 @@ import com.target.corp.profanity.checker.entity.ProfanityCheckResponse;
 import com.target.corp.profanity.checker.entity.UserComments;
 import com.target.corp.profanity.checker.manager.IContentFilter;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Component
 public class ContentFilter implements IContentFilter {
 
+    @Autowired
     private FilteredWords filteredWords;
 
-    @Autowired
-    public ContentFilter (FilteredWords filteredWords) {
-        this.filteredWords=filteredWords;
-    }
-    @Autowired
+
+
+
+
+
+
 
     @Override
     public ProfanityCheckResponse filter(UserComments comment) {

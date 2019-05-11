@@ -14,12 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/filter")
 public class ProfanityController implements IContentController {
 
+  @Autowired
   private IContentFilter contentFilter;
 
-  @Autowired
-  ProfanityController(IContentFilter contentFilter) {
-    this.contentFilter = contentFilter;
-  }
+
+
 
   @PostMapping(
       path = "/text",
@@ -27,6 +26,6 @@ public class ProfanityController implements IContentController {
       consumes = MediaType.APPLICATION_JSON_VALUE)
   @Override
   public ProfanityCheckResponse filterComment(UserComments userComments) {
-    return null;
+    return contentFilter.filter(userComments);
   }
 }

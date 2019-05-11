@@ -7,4 +7,5 @@ public class ProfanityCheckResponse {
     Integer commentID;
     Boolean clean;
     Double score;
+
 }
